@@ -1,0 +1,25 @@
+/** laCuentaMozaico.css **/
+
+.button-small-table {
+  font-size: 9px;
+}
+
+.input-group-inline {
+  display: flex;
+}
+
+.inputSpinnerPlato {
+  width: 25% !important;
+}
+
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
+
+.tituloCuerpo {
+  color: #337ab7ff
+}
+
+.total-ticket {
+  font-weight: bold;
+}
