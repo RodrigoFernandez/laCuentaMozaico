@@ -1,14 +1,10 @@
 /**
  * laCuentaMozaico.js
  */
-
-/**
- * laCuentaMozaico.js
- */
 function initIngresoPlatoId(){
   $("#platoId").val('');
   $("#precioId").val('');
-  $("#esServicioMesaId").prop('checked', false);
+  $("#esALaRomanaId").prop('checked', false);
 
   $("#platoId").focus();
 }
@@ -25,6 +21,13 @@ function limpiarDivsDeProcesamiento(){
 function btnEliminarPlato(e){
   $("#tableListadoDePlatosId tbody #" + $(e.currentTarget).attr("data")).remove();
   limpiarDivsDeProcesamiento();
+}
+
+/**
+ * Elimina los platos de la lista de platos disponibles
+ */
+function limpiarListadoDePlatos(){
+  $("#tableListadoDePlatosId tbody").empty();
 }
 
 /**
@@ -48,7 +51,7 @@ function btnAddPlatoClick(){
     "nuevoPlatoId":$("#platoId").val().trim().replace(" ", "_"),
     "nuevoPlato":$("#platoId").val().trim(),
     "nuevoPrecio":$("#precioId").val().trim(),
-    "esServicioDeMesa":$("#esServicioMesaId").is(":checked") ? "Si" : "No"
+    "esALaRomana":$("#esALaRomanaId").is(":checked") ? "Si" : "No"
   };
 
   var nuevaLinea = plantilla(contexto);
@@ -59,6 +62,13 @@ function btnAddPlatoClick(){
   limpiarDivsDeProcesamiento();
 
   initIngresoPlatoId();
+}
+
+/**
+ * Inicializa la cantidad de comensales
+ */
+function inicializarCantidadDeComensales(){
+  $("#cantidadComensales").val(2);
 }
 
 /**
@@ -82,7 +92,7 @@ function btnEstablecerComensalesClick(){
 
   $("#tableListadoDePlatosId tbody tr").each(function(indice){
 
-    if($(this).find("td.esServicioDeMesa").text() == "No"){
+    if($(this).find("td.esALaRomana").text() == "No"){
       platos.push({
         "plato": $(this).find("td.plato").text(),
         "precio": $(this).find("span.precio").text(),
@@ -218,9 +228,15 @@ function btnProcesarClick(){
 
   presentarTotalTicket(ticketTotal);
   presentarTotalTicketPorComensal(ticketsComensales);
+}
 
+function formatearPrecio(precio){
+  return parseFloat(precio).toFixed(2);
 }
 
 function btnLimpiarClick(){
-  alert("Aca se limpia todo el formulario");
+  limpiarDivsDeProcesamiento()
+  initIngresoPlatoId();
+  limpiarListadoDePlatos();
+  inicializarCantidadDeComensales();
 }

@@ -32,222 +32,214 @@ https://shaack.com/projekte/bootstrap-input-spinner/
 -->
   <body>
     <div class="container">
-      <div class="table-responsive">
-        <table class="table">
-          <tbody>
-            <tr>
-              <td><img src="images/restaurant-covered-plate-on-a-hand.svg" class="float-left"></td>
-              <td><h2 class="tituloCuerpo">La Cuenta Mozaico</h2></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="row">
+        <!-- https://programarfacil.com/blog/crear-una-web-responsive-con-bootstrap/ -->
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          <img src="images/restaurant-covered-plate-on-a-hand.svg" class="float-left">
+        </div>
+        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+          <h2 class="tituloCuerpo">La Cuenta Mozaico</h2>
+        </div>
       </div>
-    </div>
 
-    <br>
+      <div id="platosId" class="row">
+        <div id="ingresoPlatoId" class="table-responsive">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td><label for="platoId">Plato:</label></td>
+                <td><input type="text" name="" value="" id="platoId"></td>
+              </tr>
+              <tr>
+                <td><label for="precioId">Precio:</label></td>
+                <td><input type="number" name="" value="" id="precioId"></td>
+              </tr>
+              <tr>
+                <td colspan="2"><label><input type="checkbox" name="" value="" id="esALaRomanaId">A la romana</label></td>
+              </tr>
+              <tr>
+                <td colspan="2"><button type="button" name="button" class="btn btn-primary btn-sm btn-block" id="addPlatoId"><span class="glyphicon glyphicon-plus"></span></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-    <div id="platosId" class="container">
-      <div id="ingresoPlatoId" class="table-responsive">
+        <div id="listadoDePlatosId" class="table-responsive-sm">
+          <table class="table table-striped" id="tableListadoDePlatosId">
+            <thead>
+              <tr>
+                <th>Plato</th>
+                <th>Precio</th>
+                <th>A la romana</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+
+          <script type="text/x-handlebars-template" id="platoTemplate">
+            <tr id="{{nuevoPlatoId}}_{{nuevoPrecio}}">
+              <td class="plato">{{nuevoPlato}}</td>
+              <td>$ <span class="precio">{{nuevoPrecio}}</span></td>
+              <td class="esALaRomana">{{esALaRomana}}</td>
+              <td class="eliminarPlato"><button type="button" name="button" class="btn btn-sm btn-danger button-small-table" data="{{nuevoPlatoId}}_{{nuevoPrecio}}" id="eliminarPlatoId_{{nuevoPlatoId}}_{{nuevoPrecio}}"><span class="glyphicon glyphicon-remove "></span></button></td>
+            </tr>
+          </script>
+        </div>
+      </div>
+
+      <div id="comensalesId" class="row">
         <table class="table table-striped">
           <tbody>
             <tr>
-              <td><label for="platoId">Plato:</label></td>
-              <td><input type="text" name="" value="" id="platoId"></td>
+              <td><label for="cantidadComensales">Cantidad de comensales:</label></td>
+              <td><input type="number" name="" value="2" id="cantidadComensales"></td>
             </tr>
             <tr>
-              <td><label for="precioId">Precio:</label></td>
-              <td><input type="number" name="" value="" id="precioId"></td>
-            </tr>
-            <tr>
-              <td colspan="2"><label><input type="checkbox" name="" value="" id="esServicioMesaId"> Servicio de mesa</label></td>
-            </tr>
-            <tr>
-              <td colspan="2"><button type="button" name="button" class="btn btn-primary btn-sm btn-block" id="addPlatoId"><span class="glyphicon glyphicon-plus"></span></button></td>
+              <td colspan="2"><button type="button" name="button" id="establecerComensalesId" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-save"></span> Establecer</button></td>
             </tr>
           </tbody>
         </table>
       </div>
-      <br>
-      <div id="listadoDePlatosId" class="table-responsive-sm">
-        <table class="table table-striped" id="tableListadoDePlatosId">
-          <thead>
-            <tr>
-              <th>Plato</th>
-              <th>Precio</th>
-              <th>Serv. de mesa</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
 
-        <script type="text/x-handlebars-template" id="platoTemplate">
-          <tr id="{{nuevoPlatoId}}_{{nuevoPrecio}}">
-            <td class="plato">{{nuevoPlato}}</td>
-            <td>$ <span class="precio">{{nuevoPrecio}}</span></td>
-            <td class="esServicioDeMesa">{{esServicioDeMesa}}</td>
-            <td class="eliminarPlato"><button type="button" name="button" class="btn btn-sm btn-danger button-small-table" data="{{nuevoPlatoId}}_{{nuevoPrecio}}" id="eliminarPlatoId_{{nuevoPlatoId}}_{{nuevoPrecio}}"><span class="glyphicon glyphicon-remove "></span></button></td>
-          </tr>
-        </script>
-      </div>
-    </div>
-
-    <br>
-
-    <div id="comensalesId" class="container">
-      <table class="table table-striped">
-        <tbody>
-          <tr>
-            <td><label for="cantidadComensales">Cantidad de comensales:</label></td>
-            <td><input type="text" name="" value="2" id="cantidadComensales"></td>
-          </tr>
-          <tr>
-            <td colspan="2"><button type="button" name="button" id="establecerComensalesId" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-save"></span> Establecer</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <br>
-
-    <script type="text/x-handlebars-template" id="ticketComensalTemplate">
-      <div class="table-responsive">
-        <h4>Comensal Nro.: {{nroComensal}}</h4>
-        <table class="table table-striped" id="comensalNro{{nroComensal}}" data="{{nroComensal}}">
-          <thead>
-            <tr>
-              <th>Plato</th>
-              <th>Precio</th>
-              <th>Cantidad</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#each platos}}
+      <script type="text/x-handlebars-template" id="ticketComensalTemplate">
+        <div class="table-responsive">
+          <h4>Comensal Nro.: {{nroComensal}}</h4>
+          <table class="table table-striped" id="comensalNro{{nroComensal}}" data="{{nroComensal}}">
+            <thead>
               <tr>
-                <td><span class="platoTicket">{{plato}}</span></td>
-                <td>$ <span class="precioTicket">{{precio}}</span></td>
-                <td>
-                  {{#if esEditable}}
-                    <input type="number" name="" value="1" class="inputSpinnerPlato" id="cantidadPlato">
-                  {{else}}
-                    <input type="number" name="" value="1" class="inputSpinnerPlato" id="cantidadPlato" disabled>
-                  {{/if}}
-                </td>
-                <td>
-                  {{#if esEditable}}
-                    <input class="form-check-input checkTicket" type="checkbox">
-                  {{else}}
-                    <input class="form-check-input checkTicket" type="checkbox" checked  disabled>
-                  {{/if}}
-                </td>
+                <th>Plato</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th></th>
               </tr>
-            {{/each}}
+            </thead>
+            <tbody>
+              {{#each platos}}
+                <tr>
+                  <td><span class="platoTicket">{{plato}}</span></td>
+                  <td>$ <span class="precioTicket">{{formatearPrecio precio}}</span></td>
+                  <td>
+                    {{#if esEditable}}
+                      <input type="number" name="" value="1" class="inputSpinnerPlato" id="cantidadPlato">
+                    {{else}}
+                      <input type="number" name="" value="1" class="inputSpinnerPlato" id="cantidadPlato" disabled>
+                    {{/if}}
+                  </td>
+                  <td>
+                    {{#if esEditable}}
+                      <input class="form-check-input checkTicket" type="checkbox">
+                    {{else}}
+                      <input class="form-check-input checkTicket" type="checkbox" checked  disabled>
+                    {{/if}}
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </script>
+
+      <div id="dividirTicketId" class="row">
+      </div>
+
+      <div id="procesarConsumosId" class="row">
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <td><button type="button" name="button" id="procesarId" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-play-circle"></span> Procesar</button></td>
+            </tr>
           </tbody>
         </table>
       </div>
-    </script>
 
-    <div id="dividirTicketId" class="container">
-    </div>
+      <script type="text/x-handlebars-template" id="totalTicketTemplate">
+        <table class="table table-striped" id="tableTotalTicketId">
+          <tbody>
+            <tr>
+              <th>Total Ticket:</th>
+              <th>${{formatearPrecio totalPlatos}}</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td>Con Propina 10%:</td>
+              <td>${{formatearPrecio propina10}}</td>
+              <td><span class="total-ticket">${{formatearPrecio totalPropina10}}</span> = ${{formatearPrecio totalPlatos}} + ${{formatearPrecio propina10}}</td>
+            </tr>
+            <tr>
+              <td>Con Propina 20%:</td>
+              <td>${{formatearPrecio propina20}}</td>
+              <td><span class="total-ticket">${{formatearPrecio totalPropina20}}</span> = ${{formatearPrecio totalPlatos}} + ${{formatearPrecio propina20}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+      </script>
 
-    <br>
+      <script type="text/x-handlebars-template" id="totalTicketComensalTemplate">
+        <table class="table table-striped" id="totalComensal">
+          <tbody>
+            <tr>
+              <th>Total Plato Comensal {{nroComensal}}:</th>
+              <th>${{formatearPrecio ticket.totalPlatos}}</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td>Con Propina 10%:</td>
+              <td>${{formatearPrecio ticket.propina10}}</td>
+              <td><span class="total-ticket">${{formatearPrecio ticket.totalPropina10}}</span> = ${{formatearPrecio ticket.totalPlatos}} + ${{formatearPrecio ticket.propina10}}</td>
+            </tr>
+            <tr>
+              <td>Con Propina 20%:</td>
+              <td>${{formatearPrecio ticket.propina20}}</td>
+              <td> <span class="total-ticket">${{formatearPrecio ticket.totalPropina20}}</span> = ${{formatearPrecio ticket.totalPlatos}} + ${{formatearPrecio ticket.propina20}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+      </script>
 
-    <div id="procesarConsumosId" class="container">
-      <table class="table table-striped">
-        <tbody>
-          <tr>
-            <td><button type="button" name="button" id="procesarId" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-play-circle"></span> Procesar</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      <div id="totalesId" class="row">
+        <div class="table-responsive-sm" id="totalTicketId">
+        </div>
 
-    <br>
-
-    <script type="text/x-handlebars-template" id="totalTicketTemplate">
-      <table class="table table-striped" id="tableTotalTicketId">
-        <tbody>
-          <tr>
-            <th>Total Ticket:</th>
-            <th>${{totalPlatos}}</th>
-            <th></th>
-          </tr>
-          <tr>
-            <td>Con Propina 10%:</td>
-            <td>${{propina10}}</td>
-            <td><span class="total-ticket">${{totalPropina10}}</span> = ${{totalPlatos}} + ${{propina10}}</td>
-          </tr>
-          <tr>
-            <td>Con Propina 20%:</td>
-            <td>${{propina20}}</td>
-            <td><span class="total-ticket">${{totalPropina20}}</span> = ${{totalPlatos}} + ${{propina20}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </script>
-
-    <script type="text/x-handlebars-template" id="totalTicketComensalTemplate">
-      <table class="table table-striped" id="totalComensal">
-        <tbody>
-          <tr>
-            <th>Total Plato Comensal {{nroComensal}}:</th>
-            <th>${{ticket.totalPlatos}}</th>
-            <th></th>
-          </tr>
-          <tr>
-            <td>Con Propina 10%:</td>
-            <td>${{ticket.propina10}}</td>
-            <td><span class="total-ticket">${{ticket.totalPropina10}}</span> = ${{ticket.totalPlatos}} + ${{ticket.propina10}}</td>
-          </tr>
-          <tr>
-            <td>Con Propina 20%:</td>
-            <td>${{ticket.propina20}}</td>
-            <td> <span class="total-ticket">${{ticket.totalPropina20}}</span> = ${{ticket.totalPlatos}} + ${{ticket.propina20}}</td>
-          </tr>
-        </tbody>
-      </table>
-      <br>
-    </script>
-
-    <div id="totalesId" class="container">
-      <div class="table-responsive-sm" id="totalTicketId">
+        <div class="table-responsive-sm" id="totalesComensalesId">
+        </div>
       </div>
 
-      <br>
-
-      <div class="table-responsive-sm" id="totalesComensalesId">
+      <div id="limpiarId" class="row">
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <td><button type="button" name="" id="btnLimpiarId" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-erase"></span> Limpiar</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+
+      <div class="row">
+        <footer>
+          <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        </footer>
+      </div>
+
+      <script type="text/javascript">
+
+        $(document).ready(function() {
+          initIngresoPlatoId();
+          inicializarCantidadDeComensales();
+
+          Handlebars.registerHelper('formatearPrecio', formatearPrecio);
+
+          $("#addPlatoId").on("click", btnAddPlatoClick);
+          $("#establecerComensalesId").on("click", btnEstablecerComensalesClick);
+          $("#procesarId").on("click", btnProcesarClick);
+          $("#btnLimpiarId").on("click", btnLimpiarClick);
+          $("#platoId").focus();
+
+        });
+      </script>
     </div>
-
-    <br>
-
-    <div id="limpiarId" class="container">
-      <table class="table table-striped">
-        <tbody>
-          <tr>
-            <td><button type="button" name="" id="btnLimpiarId" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-erase"></span> Limpiar</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <script type="text/javascript">
-
-      $(document).ready(function() {
-        initIngresoPlatoId();
-
-        $("#addPlatoId").on("click", btnAddPlatoClick);
-        $("#establecerComensalesId").on("click", btnEstablecerComensalesClick);
-        $("#procesarId").on("click", btnProcesarClick);
-        $("#btnLimpiarId").on("click", btnLimpiarClick);
-        $("#platoId").focus();
-
-      });
-    </script>
-
-    <br>
-    <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
   </body>
 </html>
